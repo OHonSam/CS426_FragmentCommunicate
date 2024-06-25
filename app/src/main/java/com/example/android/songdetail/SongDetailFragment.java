@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.songdetail.content.SongUtils;
+import com.example.android.songdetail.content.Utils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +18,7 @@ import com.example.android.songdetail.content.SongUtils;
  * create an instance of this fragment.
  */
 public class SongDetailFragment extends Fragment {
-    public SongUtils.Song mSong;
+    public Utils.Song mSong;
 
     public SongDetailFragment() {
         // Required empty public constructor
@@ -28,7 +28,7 @@ public class SongDetailFragment extends Fragment {
         SongDetailFragment fragment = new SongDetailFragment();
         // Set the bundle arguments for the fragment.
         Bundle arguments = new Bundle();
-        arguments.putInt(SongUtils.SONG_ID_KEY, selectedSong);
+        arguments.putInt(Utils.ID_KEY, selectedSong);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -36,10 +36,10 @@ public class SongDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments().containsKey(SongUtils.SONG_ID_KEY)) {
+        if (getArguments().containsKey(Utils.ID_KEY)) {
             // Load the content specified by the fragment arguments.
-            mSong = SongUtils.SONG_ITEMS.get(getArguments()
-                    .getInt(SongUtils.SONG_ID_KEY));
+            mSong = Utils.ITEMS.get(getArguments()
+                    .getInt(Utils.ID_KEY));
         }
     }
     
@@ -52,7 +52,7 @@ public class SongDetailFragment extends Fragment {
         if (mSong != null) {
             ((TextView) rootView.findViewById(R.id.song_detail))
                     .setText(mSong.details);
-            ((ImageView) rootView.findViewById(R.id.team_icon_image)).setImageResource(R.drawable.icon);
+            ((ImageView) rootView.findViewById(R.id.team_icon_image)).setImageResource(mSong.iconResource);
         }
         return rootView;
     }

@@ -23,9 +23,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import com.example.android.songdetail.content.SongUtils;
+import com.example.android.songdetail.content.Utils;
 
 /**
  * An activity representing a single song detail screen.
@@ -50,7 +49,7 @@ public class SongDetailActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             int selectedSong =
-                    getIntent().getIntExtra(SongUtils.SONG_ID_KEY, 0);
+                    getIntent().getIntExtra(Utils.ID_KEY, 0);
             SongDetailFragment fragment =
                     SongDetailFragment.newInstance(selectedSong);
             getSupportFragmentManager().beginTransaction()

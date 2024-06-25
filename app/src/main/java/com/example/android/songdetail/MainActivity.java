@@ -16,7 +16,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android.songdetail.content.SongUtils;
+import com.example.android.songdetail.content.Utils;
 
 import java.util.List;
 
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
         // Get the song list as a RecyclerView.
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.song_list);
         recyclerView.setAdapter
-                (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
+                (new SimpleItemRecyclerViewAdapter(Utils.ITEMS));
 
 
         // Get the button for opening and closing the fragment.
@@ -160,9 +160,9 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
             extends RecyclerView.Adapter
             <SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<SongUtils.Song> mValues;
+        private final List<Utils.Song> mValues;
 
-        SimpleItemRecyclerViewAdapter(List<SongUtils.Song> items) {
+        SimpleItemRecyclerViewAdapter(List<Utils.Song> items) {
             mValues = items;
         }
 
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, SongDetailActivity.class);
-                        intent.putExtra(SongUtils.SONG_ID_KEY,
+                        intent.putExtra(Utils.ID_KEY,
                                 holder.getAdapterPosition());
                         context.startActivity(intent);
                     }
@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
             final View mView;
             final TextView mIdView;
             final TextView mContentView;
-            SongUtils.Song mItem;
+            Utils.Song mItem;
 
             ViewHolder(View view) {
                 super(view);
