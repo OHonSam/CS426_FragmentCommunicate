@@ -29,7 +29,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/beatles_anthology_box" />
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        app:srcCompat="@drawable/icon" />
 
     <TextView
         android:id="@+id/article_heading"
