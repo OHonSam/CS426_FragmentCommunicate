@@ -6,10 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.songdetail.content.SongUtils;
@@ -21,7 +25,14 @@ import java.util.List;
  * touched, an intent starts {@link SongDetailActivity} representing
  * song details.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FeedbackFragment.OnFragmentInteractionListener{
+    // UI Feedback components.
+    private Button mButton;
+    private boolean isFragmentDisplayed = false;
+    private int mRadioButtonChoice = 2; // The default (no choice).
+
+    // Saved instance state key.
+    static final String STATE_FRAGMENT = "state_of_fragment";
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -38,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //
+
+
         if (findViewById(R.id.song_detail_container) != null) {
             mTwoPane = true;
         }
@@ -53,6 +65,92 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.song_list);
         recyclerView.setAdapter
                 (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
+
+
+        // Get the button for opening and closing the fragment.
+        mButton = findViewById(R.id.open_button);
+
+        // If returning from a configuration change, get the
+        // fragment state and set the button text.
+        if (savedInstanceState != null) {
+            isFragmentDisplayed = savedInstanceState.getBoolean(STATE_FRAGMENT);
+            if (isFragmentDisplayed) {
+                // If the fragment is displayed, change button to "close".
+                mButton.setText(R.string.close);
+            }
+        }
+        // Set the click listener for the button.
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isFragmentDisplayed) {
+                    displayFragment();
+                } else {
+                    closeFragment();
+                }
+            }
+        });
+
+
+    }
+
+
+    /**
+     * This method is called when the user clicks the button
+     * to open the fragment.
+     */
+    public void displayFragment() {
+        // Instantiate the fragment.
+        FeedbackFragment feedbackFragment = FeedbackFragment.newInstance(mRadioButtonChoice);
+        // Get the FragmentManager and start a transaction.
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager
+                .beginTransaction();
+
+        // Add the SimpleFragment.
+        fragmentTransaction.add(R.id.fragment_container,
+                feedbackFragment).addToBackStack(null).commit();
+
+        // Update the Button text.
+        mButton.setText(R.string.close);
+        // Set boolean flag to indicate fragment is open.
+        isFragmentDisplayed = true;
+    }
+    /**
+     * This method is called when the user clicks the button to
+     * close the fragment.
+     */
+    public void closeFragment() {
+        // Get the FragmentManager.
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        // Check to see if the fragment is already showing.
+        FeedbackFragment simpleFragment = (FeedbackFragment) fragmentManager
+                .findFragmentById(R.id.fragment_container);
+        if (simpleFragment != null) {
+            // Create and commit the transaction to remove the fragment.
+            FragmentTransaction fragmentTransaction =
+                    fragmentManager.beginTransaction();
+            fragmentTransaction.remove(simpleFragment).commit();
+        }
+        // Update the Button text.
+        mButton.setText(R.string.open);
+        // Set boolean flag to indicate fragment is closed.
+        isFragmentDisplayed = false;
+    }
+
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the state of the fragment (true=open, false=closed).
+        savedInstanceState.putBoolean(STATE_FRAGMENT, isFragmentDisplayed);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRadioButtonChoice(int choice) {
+        // Keep the radio button choice to pass it back to the fragment.
+        mRadioButtonChoice = choice;
+        // Display the choice.
+        Toast.makeText(this, "Choice is " + Integer.toString(choice),
+                Toast.LENGTH_SHORT).show();
     }
 
     /**

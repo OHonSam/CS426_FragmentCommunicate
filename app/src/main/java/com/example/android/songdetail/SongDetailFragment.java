@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.songdetail.content.SongUtils;
@@ -51,6 +52,7 @@ public class SongDetailFragment extends Fragment {
         if (mSong != null) {
             ((TextView) rootView.findViewById(R.id.song_detail))
                     .setText(mSong.details);
+            ((ImageView) rootView.findViewById(R.id.team_icon_image)).setImageResource(R.drawable.icon);
         }
         return rootView;
     }
