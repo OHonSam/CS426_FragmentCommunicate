@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -194,6 +195,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
             holder.mItem = mValues.get(position);
             holder.mIdView.setText(String.valueOf(position + 1));
             holder.mContentView.setText(mValues.get(position).theme_title);
+            holder.mThemeIconView.setImageResource(mValues.get(position).themeIconResource);
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -233,6 +235,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
             final View mView;
             final TextView mIdView;
             final TextView mContentView;
+            final ImageView mThemeIconView;
             Utils.WorldsEvent mItem;
 
             ViewHolder(View view) {
@@ -240,6 +243,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
                 mView = view;
                 mIdView = (TextView) view.findViewById(R.id.id);
                 mContentView = (TextView) view.findViewById(R.id.content);
+                mThemeIconView = (ImageView) view.findViewById(R.id.theme_icon_item);
             }
         }
     }

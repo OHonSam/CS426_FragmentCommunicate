@@ -18,7 +18,7 @@ public class Utils {
     public static final String ID_KEY = "item_id";
 
     // The number of songs.
-    private static final int COUNT = 13;
+    private static final int EVENTS_COUNT = 13;
 
     public static final int[] teamIconResources = {
             R.drawable.fnc,
@@ -34,19 +34,37 @@ public class Utils {
             R.drawable.t1,
     };
 
+    public static final int[] themeIconResources = {
+            R.drawable.season1,
+            R.drawable.season2,
+            R.drawable.season3,
+            R.drawable.season4,
+            R.drawable.season5,
+            R.drawable.season6,
+            R.drawable.season7,
+            R.drawable.season8,
+            R.drawable.season9,
+            R.drawable.season10,
+            R.drawable.season11,
+            R.drawable.season12,
+            R.drawable.season13,
+    };
+
     /**
      * A Song item represents a song title, and song details.
      */
     public static class WorldsEvent {
         public final String theme_title;
         public final String details;
-        public final int iconResource;
+        public final int winnerIconResource;
+        public final int themeIconResource;
 
 
-        private WorldsEvent(String content, String details, int iconResource) {
+        private WorldsEvent(String content, String details, int winnerIconResource, int themeIconResource) {
             this.theme_title = content;
             this.details = details;
-            this.iconResource = iconResource;
+            this.winnerIconResource = winnerIconResource;
+            this.themeIconResource = themeIconResource;
         }
     }
 
@@ -61,7 +79,7 @@ public class Utils {
 
     static {
         // Fill the array with songs.
-        for (int i = 0; i < COUNT; i++) {
+        for (int i = 0; i < EVENTS_COUNT; i++) {
             addItem(createWorldsEventAtPosition(i));
         }
     }
@@ -69,75 +87,89 @@ public class Utils {
     private static WorldsEvent createWorldsEventAtPosition(int position) {
         String newTitle;
         String newDetail;
-        int newIconResource;
+        int newWinnerIconResource;
+        int newThemeIconResource;
 
         switch (position) {
             case 0:
                 newTitle = "Worlds 2011 - First competitive season";
                 newDetail = "Fnatic";
-                newIconResource = teamIconResources[0];
+                newWinnerIconResource = teamIconResources[0];
+                newThemeIconResource = themeIconResources[0];
                 break;
             case 1:
                 newTitle = "Worlds 2012  - Expansion of participating teams";
                 newDetail = "Taipei Assassins";
-                newIconResource = teamIconResources[1];
+                newWinnerIconResource = teamIconResources[1];
+                newThemeIconResource = themeIconResources[1];
                 break;
             case 2:
                 newTitle = "Worlds 2013 - The beginning of Korean domination";
                 newDetail = "SK Telecom T1";
-                newIconResource = teamIconResources[2];
+                newWinnerIconResource = teamIconResources[2];
+                newThemeIconResource = themeIconResources[2];
                 break;
             case 3:
                 newTitle = "Worlds 2014 - Warriors";
                 newDetail = "Samsung White";
-                newIconResource = teamIconResources[3];
+                newWinnerIconResource = teamIconResources[3];
+                newThemeIconResource = themeIconResources[3];
                 break;
             case 4:
                 newTitle = "Worlds 2015 - Worlds Collide";
                 newDetail = "SK Telecom T1 (x2)";
-                newIconResource = teamIconResources[2];
+                newWinnerIconResource = teamIconResources[2];
+                newThemeIconResource = themeIconResources[4];
                 break;
             case 5:
                 newTitle = "Worlds 2016 - Ignite";
                 newDetail = "SK Telecom T1 (x3)";
-                newIconResource = teamIconResources[2];
+                newWinnerIconResource = teamIconResources[2];
+                newThemeIconResource = themeIconResources[5];
                 break;
             case 6:
                 newTitle = "Worlds 2017 - Legends Never Die";
                 newDetail = "Samsung Galaxy (x2)";
-                newIconResource = teamIconResources[4];
+                newWinnerIconResource = teamIconResources[4];
+                newThemeIconResource = themeIconResources[6];
                 break;
             case 7:
                 newTitle = "Worlds 2018 - Rise";
                 newDetail = "Invictus Gaming";
-                newIconResource = teamIconResources[5];
+                newWinnerIconResource = teamIconResources[5];
+                newThemeIconResource = themeIconResources[7];
                 break;
             case 8:
                 newTitle = "Worlds 2019 - Phoenix";
                 newDetail = "FunPlus Phoenix";
-                newIconResource = teamIconResources[6];
+                newWinnerIconResource = teamIconResources[6];
+                newThemeIconResource = themeIconResources[8];
                 break;
             case 9:
                 newTitle = "Worlds 2020 - Take Over";
                 newDetail = "DAMWON Gaming";
-                newIconResource = teamIconResources[7];
+                newWinnerIconResource = teamIconResources[7];
+                newThemeIconResource = themeIconResources[9];
                 break;
             case 10:
                 newTitle = "Worlds 2021 - Burn It All Down";
                 newDetail = "EDward Gaming";
-                newIconResource = teamIconResources[8];
+                newWinnerIconResource = teamIconResources[8];
+                newThemeIconResource = themeIconResources[10];
                 break;
             case 11:
                 newTitle = "Worlds 2022 - Stars Walkin'";
                 newDetail = "DRX";
-                newIconResource = teamIconResources[9];
+                newWinnerIconResource = teamIconResources[9];
+                newThemeIconResource = themeIconResources[11];
                 break;
             default:
                 newTitle = "Worlds 2023 - GODS";
                 newDetail = "T1 (x4)";
-                newIconResource = teamIconResources[10];
+                newWinnerIconResource = teamIconResources[10];
+                newThemeIconResource = themeIconResources[12];
                 break;
         }
-        return new WorldsEvent(newTitle, newDetail, newIconResource);
+        return new WorldsEvent(newTitle, newDetail, newWinnerIconResource, newThemeIconResource);
     }
 }

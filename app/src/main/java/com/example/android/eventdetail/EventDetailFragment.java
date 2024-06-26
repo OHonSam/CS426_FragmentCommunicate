@@ -52,7 +52,7 @@ public class EventDetailFragment extends Fragment {
         if (mWorldsEvent != null) {
             ((TextView) rootView.findViewById(R.id.event_detail))
                     .setText(mWorldsEvent.details);
-            ((ImageView) rootView.findViewById(R.id.team_icon_image)).setImageResource(mWorldsEvent.iconResource);
+            ((ImageView) rootView.findViewById(R.id.team_icon_image)).setImageResource(mWorldsEvent.winnerIconResource);
         }
         return rootView;
     }
