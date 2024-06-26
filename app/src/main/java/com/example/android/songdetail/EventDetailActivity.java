@@ -53,7 +53,7 @@ public class EventDetailActivity extends AppCompatActivity {
             EventDetailFragment fragment =
                     EventDetailFragment.newInstance(selectedEvent);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.song_detail_container, fragment)
+                    .add(R.id.event_detail_container, fragment)
                     .commit();
         }
     }

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools" >
 
     <ImageView
-        android:id="@+id/album_image"
+        android:id="@+id/tournament_icon_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -23,8 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_regular"
-        android:layout_toRightOf="@id/album_image"
-        android:layout_toEndOf="@id/album_image"
+        android:layout_toRightOf="@id/tournament_icon_image"
+        android:layout_toEndOf="@id/tournament_icon_image"
         android:text="@string/article_title"
         android:textAppearance="@android:style/TextAppearance.Large"
         android:textStyle="bold" />
@@ -33,8 +33,8 @@
         android:id="@+id/article_subheading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/album_image"
-        android:layout_toEndOf="@id/album_image"
+        android:layout_toRightOf="@id/tournament_icon_image"
+        android:layout_toEndOf="@id/tournament_icon_image"
         android:layout_below="@id/article_heading"
         android:padding="@dimen/padding_regular"
         android:text="@string/article_subtitle"
@@ -44,7 +44,7 @@
         android:id="@+id/open_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/album_image"
+        android:layout_alignBottom="@+id/tournament_icon_image"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="72dp"
@@ -60,7 +60,7 @@
         android:name="SimpleFragment"
         android:layout_width="299dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/album_image"
+        android:layout_alignBottom="@+id/tournament_icon_image"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -74,7 +74,7 @@
         tools:layout="@layout/fragment_feedback" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/song_list"
+        android:id="@+id/event_list"
         android:name="com.example.android.songs.SongListFragment"
         android:layout_width="395dp"
         android:layout_height="wrap_content"

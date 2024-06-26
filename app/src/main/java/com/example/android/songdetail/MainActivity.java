@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
         super.onCreate(savedInstanceState);
 
 
-        if (findViewById(R.id.song_detail_container) != null) {
+        if (findViewById(R.id.event_detail_container) != null) {
             mTwoPane = true;
         }
         setContentView(R.layout.activity_event_list);
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
         toolbar.setTitle(getTitle());
 
         // Get the song list as a RecyclerView.
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.song_list);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.event_list);
         recyclerView.setAdapter
                 (new SimpleItemRecyclerViewAdapter(Utils.ITEMS));
 
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
                         EventDetailFragment fragment =
                                 EventDetailFragment.newInstance(selectedEvent);
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.song_detail_container, fragment)
+                                .replace(R.id.event_detail_container, fragment)
                                 .addToBackStack(null)
                                 .commit();
                     } else {

@@ -50,7 +50,7 @@ public class EventDetailFragment extends Fragment {
                 inflater.inflate(R.layout.event_detail, container, false);
         // TODO: Show the detail information in a TextView.
         if (mWorldsEvent != null) {
-            ((TextView) rootView.findViewById(R.id.song_detail))
+            ((TextView) rootView.findViewById(R.id.event_detail))
                     .setText(mWorldsEvent.details);
             ((ImageView) rootView.findViewById(R.id.team_icon_image)).setImageResource(mWorldsEvent.iconResource);
         }
