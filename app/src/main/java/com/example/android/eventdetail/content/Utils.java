@@ -38,13 +38,13 @@ public class Utils {
      * A Song item represents a song title, and song details.
      */
     public static class WorldsEvent {
-        public final String song_title;
+        public final String theme_title;
         public final String details;
         public final int iconResource;
 
 
         private WorldsEvent(String content, String details, int iconResource) {
-            this.song_title = content;
+            this.theme_title = content;
             this.details = details;
             this.iconResource = iconResource;
         }
