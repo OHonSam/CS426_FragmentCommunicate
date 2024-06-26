@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
         if (findViewById(R.id.song_detail_container) != null) {
             mTwoPane = true;
         }
-        setContentView(R.layout.activity_song_list);
+        setContentView(R.layout.activity_event_list);
 
         // Set the toolbar as the app bar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.song_list_content, parent, false);
+                    .inflate(R.layout.event_list_content, parent, false);
             return new ViewHolder(view);
         }
 
@@ -198,9 +198,9 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
-                        int selectedSong = holder.getAdapterPosition();
+                        int selectedEvent = holder.getAdapterPosition();
                         EventDetailFragment fragment =
-                                EventDetailFragment.newInstance(selectedSong);
+                                EventDetailFragment.newInstance(selectedEvent);
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.song_detail_container, fragment)
                                 .addToBackStack(null)

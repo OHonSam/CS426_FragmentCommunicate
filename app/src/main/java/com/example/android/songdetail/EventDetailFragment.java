@@ -47,7 +47,7 @@ public class EventDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView =
-                inflater.inflate(R.layout.song_detail, container, false);
+                inflater.inflate(R.layout.event_detail, container, false);
         // TODO: Show the detail information in a TextView.
         if (mWorldsEvent != null) {
             ((TextView) rootView.findViewById(R.id.song_detail))
