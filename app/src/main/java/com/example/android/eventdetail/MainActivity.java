@@ -1,4 +1,4 @@
-package com.example.android.songdetail;
+package com.example.android.eventdetail;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android.songdetail.content.Utils;
+import com.example.android.eventdetail.content.Utils;
 
 import java.util.List;
 

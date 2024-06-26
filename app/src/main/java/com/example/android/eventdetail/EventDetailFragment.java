@@ -1,4 +1,4 @@
-package com.example.android.songdetail;
+package com.example.android.eventdetail;
 
 import android.os.Bundle;
 
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.songdetail.content.Utils;
+import com.example.android.eventdetail.content.Utils;
 
 /**
  * A simple {@link Fragment} subclass.

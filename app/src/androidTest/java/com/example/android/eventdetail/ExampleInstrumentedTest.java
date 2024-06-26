@@ -1,4 +1,4 @@
-package com.example.android.songdetail;
+package com.example.android.eventdetail;
 
 import android.content.Context;
 

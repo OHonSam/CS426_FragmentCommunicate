@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.android.songdetail"
+    namespace = "com.example.android.eventdetail"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.android.songdetail"
+        applicationId = "com.example.android.eventdetail"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

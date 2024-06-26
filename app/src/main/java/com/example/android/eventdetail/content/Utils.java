@@ -1,7 +1,7 @@
-package com.example.android.songdetail.content;
+package com.example.android.eventdetail.content;
 
 
-import com.example.android.songdetail.R;
+import com.example.android.eventdetail.R;
 
 import java.util.ArrayList;
 import java.util.List;

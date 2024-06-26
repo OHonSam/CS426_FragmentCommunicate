@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.songdetail;
+package com.example.android.eventdetail;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.android.songdetail.content.Utils;
+import com.example.android.eventdetail.content.Utils;
 
 /**
  * An activity representing a single song detail screen.
