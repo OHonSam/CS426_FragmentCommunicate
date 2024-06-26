@@ -22,7 +22,7 @@ import java.util.List;
 
 /**
  * An activity representing a list of song titles (items). When one is
- * touched, an intent starts {@link SongDetailActivity} representing
+ * touched, an intent starts {@link EventDetailActivity} representing
  * song details.
  */
 public class MainActivity extends AppCompatActivity implements FeedbackFragment.OnFragmentInteractionListener{
@@ -160,9 +160,9 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
             extends RecyclerView.Adapter
             <SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<Utils.Song> mValues;
+        private final List<Utils.WorldsEvent> mValues;
 
-        SimpleItemRecyclerViewAdapter(List<Utils.Song> items) {
+        SimpleItemRecyclerViewAdapter(List<Utils.WorldsEvent> items) {
             mValues = items;
         }
 
@@ -199,15 +199,15 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
                 public void onClick(View v) {
                     if (mTwoPane) {
                         int selectedSong = holder.getAdapterPosition();
-                        SongDetailFragment fragment =
-                                SongDetailFragment.newInstance(selectedSong);
+                        EventDetailFragment fragment =
+                                EventDetailFragment.newInstance(selectedSong);
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.song_detail_container, fragment)
                                 .addToBackStack(null)
                                 .commit();
                     } else {
                         Context context = v.getContext();
-                        Intent intent = new Intent(context, SongDetailActivity.class);
+                        Intent intent = new Intent(context, EventDetailActivity.class);
                         intent.putExtra(Utils.ID_KEY,
                                 holder.getAdapterPosition());
                         context.startActivity(intent);
@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements FeedbackFragment.
             final View mView;
             final TextView mIdView;
             final TextView mContentView;
-            Utils.Song mItem;
+            Utils.WorldsEvent mItem;
 
             ViewHolder(View view) {
                 super(view);

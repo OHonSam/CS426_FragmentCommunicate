@@ -29,7 +29,7 @@ import com.example.android.songdetail.content.Utils;
 /**
  * An activity representing a single song detail screen.
  */
-public class SongDetailActivity extends AppCompatActivity {
+public class EventDetailActivity extends AppCompatActivity {
 
     // SongItem includes the song title and detail.
 
@@ -48,10 +48,10 @@ public class SongDetailActivity extends AppCompatActivity {
         }
 
         if (savedInstanceState == null) {
-            int selectedSong =
+            int selectedEvent =
                     getIntent().getIntExtra(Utils.ID_KEY, 0);
-            SongDetailFragment fragment =
-                    SongDetailFragment.newInstance(selectedSong);
+            EventDetailFragment fragment =
+                    EventDetailFragment.newInstance(selectedEvent);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.song_detail_container, fragment)
                     .commit();

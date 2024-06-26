@@ -14,18 +14,18 @@ import com.example.android.songdetail.content.Utils;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SongDetailFragment#newInstance} factory method to
+ * Use the {@link EventDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SongDetailFragment extends Fragment {
-    public Utils.Song mSong;
+public class EventDetailFragment extends Fragment {
+    public Utils.WorldsEvent mWorldsEvent;
 
-    public SongDetailFragment() {
+    public EventDetailFragment() {
         // Required empty public constructor
     }
 
-    public static SongDetailFragment newInstance (int selectedSong) {
-        SongDetailFragment fragment = new SongDetailFragment();
+    public static EventDetailFragment newInstance (int selectedSong) {
+        EventDetailFragment fragment = new EventDetailFragment();
         // Set the bundle arguments for the fragment.
         Bundle arguments = new Bundle();
         arguments.putInt(Utils.ID_KEY, selectedSong);
@@ -38,7 +38,7 @@ public class SongDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments().containsKey(Utils.ID_KEY)) {
             // Load the content specified by the fragment arguments.
-            mSong = Utils.ITEMS.get(getArguments()
+            mWorldsEvent = Utils.ITEMS.get(getArguments()
                     .getInt(Utils.ID_KEY));
         }
     }
@@ -49,10 +49,10 @@ public class SongDetailFragment extends Fragment {
         View rootView =
                 inflater.inflate(R.layout.song_detail, container, false);
         // TODO: Show the detail information in a TextView.
-        if (mSong != null) {
+        if (mWorldsEvent != null) {
             ((TextView) rootView.findViewById(R.id.song_detail))
-                    .setText(mSong.details);
-            ((ImageView) rootView.findViewById(R.id.team_icon_image)).setImageResource(mSong.iconResource);
+                    .setText(mWorldsEvent.details);
+            ((ImageView) rootView.findViewById(R.id.team_icon_image)).setImageResource(mWorldsEvent.iconResource);
         }
         return rootView;
     }

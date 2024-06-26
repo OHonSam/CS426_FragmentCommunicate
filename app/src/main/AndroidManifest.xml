@@ -13,7 +13,7 @@
         android:theme="@style/Theme.SongDetail"
         tools:targetApi="31">
         <activity
-            android:name=".SongDetailActivity"
+            android:name=".EventDetailActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
